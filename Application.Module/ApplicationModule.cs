@@ -4,8 +4,10 @@
 using Application.Common;
 using Application.Module.View.Main;
 using Application.Module.View.Menu;
+using Application.Module.View.StatusBar;
 using Application.Module.ViewModel.Main;
 using Application.Module.ViewModel.Menu;
+using Application.Module.ViewModel.StatusBar;
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using Prism.Regions;
@@ -32,17 +34,21 @@ namespace Application.Module
 
         private void RegisterTypes()
         {
+            container.RegisterType<IMenuViewModel, MenuViewModel>();
+            container.RegisterType<MenuView>();
+
             container.RegisterType<IMainViewModel, MainViewModel>();
             container.RegisterType<MainView>();
 
-            container.RegisterType<IMenuViewModel, MenuViewModel>();
-            container.RegisterType<MenuView>();
+            container.RegisterType<IStatusBarViewModel, StatusBarViewModel>();
+            container.RegisterType<StatusBarView>();
         }
 
         private void RegisterRegions()
         {
+            regionManager.RegisterViewWithRegion(RegionNames.MenuRegion, () => container.Resolve<MenuView>());
             regionManager.RegisterViewWithRegion(RegionNames.MainRegion, () => container.Resolve<MainView>());
-            regionManager.RegisterViewWithRegion(RegionNames.LeftRegion, () => container.Resolve<MenuView>());
+            regionManager.RegisterViewWithRegion(RegionNames.StatusBarRegion, () => container.Resolve<StatusBarView>());
         }
     }
 }

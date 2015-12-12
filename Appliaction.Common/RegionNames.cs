@@ -5,7 +5,8 @@ namespace Application.Common
 {
     public static class RegionNames
     {
-        public const string LeftRegion = "LeftRegion";
+        public const string StatusBarRegion = "StatusBarRegion";
         public const string MainRegion = "MainRegion";
+        public const string MenuRegion = "MenuRegion";
     }
 }

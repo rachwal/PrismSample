@@ -9,9 +9,22 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <ContentControl Grid.Column="0" x:Name="MainRegion" regions:RegionManager.RegionName="MainRegion" />
-        <ContentControl Grid.Column="1" x:Name="LeftRegion" regions:RegionManager.RegionName="LeftRegion" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ContentControl x:Name="MenuRegion" Grid.Row="0" Grid.ColumnSpan="3"
+                        regions:RegionManager.RegionName="MenuRegion" />
+
+        <ContentControl x:Name="MainRegion" Grid.Row="1" Grid.ColumnSpan="3"
+                        regions:RegionManager.RegionName="MainRegion" />
+
+        <ContentControl x:Name="StatusBarRegion" Grid.Row="2" Grid.ColumnSpan="3"
+                        regions:RegionManager.RegionName="StatusBarRegion" />
     </Grid>
 </Window>
