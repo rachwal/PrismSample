@@ -1,0 +1,17 @@
+﻿<Window x:Class="Application.Shell.View.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:regions="http://prismlibrary.com/"
+        Title="Prism Sample Application"
+        Height="480"
+        Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <ContentControl Grid.Column="0" x:Name="MainRegion" regions:RegionManager.RegionName="MainRegion" />
+        <ContentControl Grid.Column="1" x:Name="LeftRegion" regions:RegionManager.RegionName="LeftRegion" />
+    </Grid>
+</Window>
